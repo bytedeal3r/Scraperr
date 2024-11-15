@@ -9,10 +9,10 @@ services:
     container_name: scraperr
     command: ["npm", "run", "start"]
     environment:
-      - NEXT_PUBLIC_API_URL=http://scraperr_api:8000 # your API URL
-      - SERVER_URL=http://scraperr_api:8000 # your docker container API URL
+      - NEXT_PUBLIC_API_URL=http://scraperr_api:1234 # your API URL
+      - SERVER_URL=http://scraperr_api:1234 # your docker container API URL
     ports:
-      - 80:3000
+      - 80:3333
     networks:
       - web
   scraperr_api:
@@ -29,7 +29,7 @@ services:
       - ACCESS_TOKEN_EXPIRE_MINUTES=600 # access token expire minutes
     container_name: scraperr_api
     ports:
-      - 8000:8000
+      - 1234:1234
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
